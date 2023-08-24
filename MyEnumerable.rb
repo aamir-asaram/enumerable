@@ -1,13 +1,13 @@
 module MyEnumerable
   def all?
-    for i in 0...size
+    (0...size).each do |i|
       return false unless yield at(i)
     end
     true
   end
 
   def any?
-    for i in 0...size
+    (0...size).each do |i|
       return true if yield at(i)
     end
     false
@@ -15,7 +15,7 @@ module MyEnumerable
 
   def filter
     result = MyList.new
-    for i in 0...size
+    (0...size).each do |i|
       result << at(i) if yield at(i)
     end
     result
